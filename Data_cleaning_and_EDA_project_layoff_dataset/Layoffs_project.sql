@@ -75,15 +75,16 @@ SELECT * FROM layoff;
 -- REMOVING DUPLICATES (WHEN WE DONT HAVE UNIQUE INDENTIFIER)
 -- these are the ones we want to delete where the row number is > 1 or 2or greater essentially
 
-select * , ctid
-from layoffs_staging
+SELECT * , ctid
+FROM layoffs_staging
+	
 -- SOLUTION 1: ONLY WORKS IN POSTGRESQL(CTID) AND ORACLE(ROWID)
-delete from layoffs_staging 
-where ctid in (select max(ctid)
-			   from layoffs_staging
-			   group by company, location, industry, total_laid_off, 
+DELETE FROM layoffs_staging 
+WHERE ctid IN (SELECT max(ctid)
+			   FROM layoffs_staging
+			   GROUP BY company, location, industry, total_laid_off, 
 			   percentage_laid_off, date, stage, country, funds_raised_millions
-			   having count(*) > 1)
+			   HAVING COUNT(*) > 1)
 ------------------------------------------------------------------------------------
 -- SOLUTION 2: FOR EVERY RDBMS, BY CREATING UNIQUE IDENTIFIER COLUMN
 -- this solution, which I think is a good one. Is to create a new column and add those row numbers in. 
