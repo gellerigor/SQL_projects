@@ -90,7 +90,8 @@ WHERE ctid IN (SELECT max(ctid)
 -- this solution, which I think is a good one. Is to create a new column and add those row numbers in. 
 -- Then delete where row numbers are over 2, then delete that column so let's do it!!
 
-ALTER TABLE layoffs_staging ADD COLUMN row_num INT GENERATED ALWAYS AS IDENTITY;
+ALTER TABLE layoffs_staging 
+ADD COLUMN row_num INT GENERATED ALWAYS AS IDENTITY;
 
 DELETE FROM layoffs_staging 
 WHERE row_num IN (SELECT MAX(row_num)
@@ -99,7 +100,8 @@ WHERE row_num IN (SELECT MAX(row_num)
 				  percentage_laid_off, date, stage, country, funds_raised_millions
 				  HAVING COUNT(*) > 1);
 
-ALTER TABLE layoffs_staging DROP COLUMN row_num;
+ALTER TABLE layoffs_staging 
+DROP COLUMN row_num;
 
 ------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------
