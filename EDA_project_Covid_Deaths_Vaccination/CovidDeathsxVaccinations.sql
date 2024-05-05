@@ -68,7 +68,7 @@ group by 1
 order by TotalDeathsCount desc;
 
 
--- Showitn continent with the highest deaths count per population
+-- Showing continent with the highest deaths count per population
 
 select 
 	continent,
