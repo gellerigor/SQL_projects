@@ -98,8 +98,8 @@ from NashvilleHousing;
 select 
 	soldasvacant,
 	case when soldasvacant = 'Y' then 'Yes'
-		 when soldasvacant = 'N' then 'No'
-		 else soldasvacant
+	     when soldasvacant = 'N' then 'No'
+		  else soldasvacant
 	end
 from NashvilleHousing;
 
@@ -107,9 +107,9 @@ from NashvilleHousing;
 update NashvilleHousing
 set
 soldasvacant = 	case when soldasvacant = 'Y' then 'Yes'
-		 			 when soldasvacant = 'N' then 'No'
-		 			 else soldasvacant
-				end;
+		     when soldasvacant = 'N' then 'No'
+		          else soldasvacant
+		end;
 
 
 
