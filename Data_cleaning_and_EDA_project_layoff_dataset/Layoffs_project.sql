@@ -22,15 +22,15 @@ CREATE TABLE layoff (
 -- LETS CHANGE 'NULL' STRINGS TO NULL VALUES IN OUR COLUMNS WHERE WE HAVE NUMERIC VALUES;
 -- we should set the blanks to nulls since those are typically easier to work with
 UPDATE layoff
-SET total_laid_off = null
+SET total_laid_off = NULL
 WHERE total_laid_off = 'NULL';
 
 UPDATE layoff
-SET percentage_laid_off = null
+SET percentage_laid_off = NULL
 WHERE percentage_laid_off = 'NULL';
 
 UPDATE layoff
-SET funds_raised_millions = null
+SET funds_raised_millions = NULL
 WHERE funds_raised_millions = 'NULL';
 
 UPDATE layoff
